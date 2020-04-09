@@ -1,0 +1,55 @@
+<form class="expertForm" [formGroup]="expertForm" (ngSubmit)="onSubmit()">
+    <div formGroupName="expertdata" class="row">
+     
+      <div class="col col-md-2">
+          <mat-form-field class="example-full-width">
+              <input matInput formControlName="id" placeholder="Id" >
+          </mat-form-field>
+        <!-- <input type="text" class="form-control" formControlName="id"> -->
+  
+      </div>
+      <div class="col col-md-2">
+       
+        <!-- <input type="text" class="form-control" formControlName="firstName"> -->
+        <mat-form-field class="example-full-width">
+            <input matInput formControlName="firstName" [value]="expertData?.firstName" placeholder="First name">
+        </mat-form-field>
+      </div>
+      <div class="col col-md-2">
+       
+        <!-- <input type="text" class="form-control" formControlName="lastName"> -->
+        <mat-form-field class="example-full-width">
+            <input matInput formControlName="lastName" [value]="expertData?.lastName" placeholder="Last name">
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3">
+          <!-- <label>Email</label> -->
+        <!-- <input type="text" class="form-control" formControlName="email"> -->
+        <mat-form-field class="example-full-width">
+        <input matInput placeholder="Email" [value]="expertData?.email" formControlName="email">
+     
+        </mat-form-field>
+      </div>
+      <div class="col col-md-3">
+        
+         <!-- <input type="text" class="form-control" formControlName="number"> -->
+         <mat-form-field class="example-full-width">
+            <span matPrefix>+91 &nbsp;</span>
+            <input type="tel" matInput #number formControlName="number" maxlength="10" [value]="expertData?.number" placeholder="Mobile">
+            <mat-hint align="end">{{number.value.length}} / 10</mat-hint>
+            <!-- <mat-icon matSuffix>mode_edit</mat-icon> -->
+          </mat-form-field>
+      </div>
+      <div class="row actions-btn">
+          <div class="col col-6">
+         
+            <input type="submit" class="form-control btn btn-primary btn-size" value="Save">
+          </div>  
+          <div class="col col-6">
+         <button class="form-control btn btn-danger btn-size" (click)="onCancel()">Cancel</button>
+      
+          </div>  
+      </div>
+    </div>
+
+  </form>

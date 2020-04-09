@@ -1,0 +1,121 @@
+<!--begin::Signin-->
+<!--<div class="m-login__signin">-->
+
+<!-- <m-auth-notice></m-auth-notice> -->
+
+<!--begin::Form-->
+<mat-card class="login-card z-depth-1 " tabindex="0">
+		<mat-card-title>
+				<div class="m-login__title">
+						
+				Engage Pro		
+				</div>
+					
+		</mat-card-title>	
+		<mat-card-subtitle class="align-center">
+				<h3 *ngIf="!isCookiePresent;else showloginTitle " translate="AUTH.LOGIN.TITLE">
+						Login Account
+					</h3>
+					<ng-template #showloginTitle>
+							<h3>
+									{{userDetails.username}}
+							</h3>	
+					</ng-template>	
+		</mat-card-subtitle>
+		<mat-card-content class="align-center">
+			<ng-container *ngIf="!isCookiePresent;else showloginForm ">
+					<form [formGroup]="loginForm"  class="m-login__form m-form" name="form"  novalidate>
+							<div class="form-group">
+								<mat-form-field>
+									<mat-label>Username</mat-label>
+									<input matInput type="text" name="username" placeholder="Username" autocomplete="off"
+											  formControlName = "username" required>
+											 
+								</mat-form-field>
+								<span class="error-msg" *ngIf="loginForm.controls.username && loginForm.controls.username.dirty && loginForm.controls.username.errors">
+										Please enter username
+								  </span>	
+								
+							</div>
+							<div class="form-group">
+								<mat-form-field>
+									<mat-label>Password</mat-label>
+									<input matInput type="password" name="password" placeholder="Password" autocomplete="off"
+										formControlName="password"  required>
+								</mat-form-field>
+							
+								<span  class="error-msg"   *ngIf="loginForm.controls.password && loginForm.controls.password.dirty && loginForm.controls.password.errors?.required">
+										Please enter password
+								</span>
+								<span   class="error-msg"  *ngIf="loginForm.controls.password && loginForm.controls.password.dirty && loginForm.controls.password.errors?.minlength">
+										Please enter valid password
+								</span>
+								
+							</div>
+							<div class="login-btn">
+									<button  (click)="onSubmit('submit')" mat-raised-button color="primary" [disabled]="!loginForm.valid">
+											<span>{{'AUTH.LOGIN.BUTTON' | translate}}</span>
+											<!-- <mat-spinner class="spinner" [diameter]="options.spinnerSize" [color]="options.spinnerColor" [mode]="options.mode" [value]="options.value" *ngIf="options.active"></mat-spinner> -->
+									</button>
+										
+								<!-- < [options]="spinner" [disabled]="!loginForm.valid" (click)="submit()">{{'AUTH.LOGIN.BUTTON' | translate}}</m-spinner-button>			 -->
+							</div>		
+						</form>
+			</ng-container>	
+			<ng-template #showloginForm >
+				<img  src="../../../../../assets/demo/default/media/img/misc/user.png"> 
+				<h4 (click)="deleteCookie()">Not you? </h4>
+			</ng-template>	
+
+		</mat-card-content>
+		<mat-card-actions *ngIf="isCookiePresent">
+				<button (click) = "onSubmit('continue')" class="continue-btn" mat-raised-button >Continue as {{userDetails.username}}</button>
+	</mat-card-actions>
+</mat-card>
+
+<!--end::Form-->
+
+<!--begin::Action-->
+<!-- <div class="m-login__action m-login__action--fit">
+	<a href="javascript:;" (click)="forgotPasswordPage($event)" class="m-link">
+		<span translate="AUTH.GENERAL.FORGOT_BUTTON">Forgot Password?</span>
+	</a>
+</div> -->
+<!--end::Action-->
+
+<!--begin::Divider-->
+<!-- <div class="m-login__form-divider">
+	<div class="m-divider">
+		<span></span>
+		<span translate="AUTH.GENERAL.OR">OR</span>
+		<span></span>
+	</div>
+</div> -->
+<!--end::Divider-->
+
+<!--begin::Options-->
+<!-- <div class="m-login__options">
+	<a href="javascript:;" mat-raised-button color="primary">
+			<span>
+				<i class="fab fa-facebook-f"></i>&nbsp;
+				<span>Facebook</span>
+			</span>
+	</a>
+
+	<a href="javascript:;" mat-raised-button color="accent">
+			<span>
+				<i class="fab fa-twitter"></i>&nbsp;
+				<span>Twitter</span>
+			</span>
+	</a>
+
+	<a href="javascript:;" mat-raised-button color="warn">
+			<span>
+				<i class="fab fa-google"></i>&nbsp;
+				<span>Google</span>
+			</span>
+	</a>
+</div> -->
+<!--end::Options-->
+<!--</div>-->
+<!--end::Signin-->

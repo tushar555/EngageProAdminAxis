@@ -1,0 +1,52 @@
+{
+    "sidemMenu":[
+        {
+            "name":"SPOC Admin",
+            "role":"admin",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Product Guide",
+            "role":"both",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Experts",
+            "role":"both",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Annoucement",
+            "role":"both",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Task",
+            "role":"both",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Module",
+            "role":"admin",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"MIS Report",
+            "role":"admin",
+            "routeTo":"",
+            "icon":""
+        },
+        {
+            "name":"Calender",
+            "role":"admin",
+            "routeTo":"",
+            "icon":""
+        }
+    ]
+}
